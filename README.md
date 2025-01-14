@@ -9,6 +9,8 @@
 
 ## Keymap
 
+### Default 65% layout
+
 Base - layer 1
 
 ![Base](layout_l1.png?raw=true "Base - layer 1")
@@ -20,6 +22,22 @@ FN1 - layer 3
 FN2 - layer 4
 
 ![FN2](layout_l4.png "FN2 - layer 4")
+
+### Experimental 40% layout
+
+Switch to MAC mode to enable it.
+
+Base - layer 0
+
+![Base](layout_l0.png?raw=true "Base - layer 0")
+
+FN1 - layer 2
+
+![FN1](layout_l2.png "FN1 - layer 2")
+
+FN2 - layer 4
+
+![FN2](layout_l3.png "FN2 - layer 4")
 
 ## Macros
 

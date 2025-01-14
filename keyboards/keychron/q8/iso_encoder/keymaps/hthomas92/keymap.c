@@ -19,11 +19,11 @@
 // clang-format off
 
 enum layers {
-    MAC_BASE,
-    WIN_BASE,
-    _FN1,
-    _FN2,
-    _FN3
+    MAC_BASE, // 40% layout
+    WIN_BASE, // 65% layout
+    _FN1,     // FN layer for 40% layout
+    _FN2,     // FN layer for 65% layout
+    _FN3      // FF2 layer for both layouts
 };
 
 #define KC_TASK LGUI(KC_TAB)
@@ -38,11 +38,11 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT_iso_70(
-        KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,     KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
-        KC_TAB,  KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,                    KC_DEL,
-        KC_CAPS, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,    KC_H,     KC_J,     KC_K,    KC_L,    KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,           KC_HOME,
-        KC_LSFT, KC_NUBS,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     KC_B,     KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, KC_UP,
-        KC_LCTL, KC_LOPT,  KC_LCMD,           KC_SPC,           MO(_FN1), MO(_FN3),          KC_SPC,            KC_RCMD,            KC_LEFT, KC_DOWN, KC_RGHT),
+        XXXXXXX, XXXXXXX,  XXXXXXX   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX,
+        KC_TAB,  KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,                    KC_PSCR,
+        KC_CAPS, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,    KC_H,     KC_J,     KC_K,    KC_L,    KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,           XXXXXXX,
+        KC_LSFT, KC_NUBS,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     KC_B,     KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, XXXXXXX,
+        KC_LCTL, KC_LWIN,  KC_LALT,           KC_SPC,           TT(_FN2), TT(_FN3),          KC_SPC,            KC_RALT,            XXXXXXX, XXXXXXX, XXXXXXX),
 
     [WIN_BASE] = LAYOUT_iso_70(
         KC_GRV,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,     KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MPLY,
@@ -52,11 +52,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_LWIN,  KC_LALT,           KC_SPC,           TT(_FN2), TT(_FN3),          KC_SPC,            KC_RALT,            KC_LEFT, KC_DOWN, KC_RGHT),
 
     [_FN1] = LAYOUT_iso_70(
-        KC_GRV,  KC_BRID,  KC_BRIU,  KC_NO,   KC_NO,   RM_VALD, RM_VALU,  KC_MPRV,  KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          KC_MUTE,
-        RM_TOGG, RM_NEXT,  RM_VALU,  RM_HUEU, RM_SATU, RM_SPDU, _______,  _______,  _______, _______, _______,  _______,  _______,                    _______,
-        _______, RM_PREV,  RM_VALD,  RM_HUED, RM_SATD, RM_SPDD, _______,  _______,  _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______, _______,  _______,  _______, _______, _______, _______,  _______,  NK_TOGG, _______, _______,  _______,  _______,  _______, _______,
-        _______, _______,  _______,           _______,          _______,  _______,           _______,           _______,            _______, _______, _______),
+        XXXXXXX, XXXXXXX,  XXXXXXX   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX,
+        KC_ESC,  KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,    KC_F7,    KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,                     KC_SCRL,
+        KC_GRV,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,     KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          _______,
+        _______, _______,  _______,  _______, _______, _______, _______,  _______,  NK_TOGG, _______, _______,  _______,  _______,  _______, XXXXXXX,
+        _______, _______,  _______,           _______,          _______,  _______,           KC_APP,            _______,            XXXXXXX, XXXXXXX, XXXXXXX),
 
     [_FN2] = LAYOUT_iso_70(
         KC_ESC,  KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,    KC_F7,    KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,   KC_DEL,           KC_MUTE,
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,    KC_F7,    KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,          RM_TOGG,
         _______, _______,  _______,  _______, _______, _______, KC_P7,    KC_P8,    KC_P9,   KC_PMNS, KC_PSLS,  _______,  _______,                    KC_PAUS,
         _______, _______,  _______,  _______, _______, _______, KC_P4,    KC_P5,    KC_P6,   KC_PPLS, KC_PAST,  _______,  _______,  _______,          _______,
-        _______, _______,  _______,  _______, _______, _______, _______,  _______,  KC_P1,    KC_P2,    KC_P3,  KC_PDOT,   _______,  _______, _______,
+        _______, _______,  _______,  _______, _______, _______, _______,  _______,  KC_P1,   KC_P2,   KC_P3,    KC_PDOT,  _______,  _______, _______,
         _______, _______,  _______,           _______,          _______,  _______,           KC_P0,             KC_PENT,            _______, _______, _______)
 };
 
@@ -95,10 +95,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     // Light the FN buttons when the fn layers are active
     switch (get_highest_layer(layer_state|default_layer_state))
     {
+        case _FN1:
         case _FN2:
             rgb_matrix_set_color(FN2_LED_INDEX, RGB_INDICATOR);
             rgb_matrix_set_color(FN3_LED_INDEX, RGB_OFF);
             break;
+        case _FN2:
         case _FN3:
             rgb_matrix_set_color(FN2_LED_INDEX, RGB_OFF);
             rgb_matrix_set_color(FN3_LED_INDEX, RGB_INDICATOR);

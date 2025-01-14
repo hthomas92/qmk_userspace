@@ -37,7 +37,7 @@ FN1 - layer 2
 
 FN2 - layer 4
 
-![FN2](layout_l3.png "FN2 - layer 4")
+![FN2](layout_l4.png "FN2 - layer 4")
 
 ## Macros
 

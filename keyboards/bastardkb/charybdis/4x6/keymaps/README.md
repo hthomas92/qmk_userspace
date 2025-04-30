@@ -21,7 +21,7 @@ All keys outside the 3x5 matrix and the 3-2 thumb cluster are unassigned.
 
 Use this with a Hungarian layout, otherwise numbers (zero) and symbols will be messed up.
 
-![Layout](charybdis-nano.png?raw=true "Charybdis Nano HU ISO layout")
+![Charybdis Nano Layout](charybdis-nano.png?raw=true "Charybdis Nano HU ISO layout")
 
 ## hthomas_full
 
@@ -29,7 +29,7 @@ Use this with a Hungarian layout, otherwise numbers (zero) and symbols will be m
 
 Use this with a Hungarian layout, otherwise numbers (zero) and symbols will be messed up.
 
-![Layout](charybdis-full_layer_0.png?raw=true "Charybdis HU ISO Full Layer 0")
-![Layout](charybdis-full_layer_1.png?raw=true "Charybdis HU ISO Full Layer 1")
-![Layout](charybdis-full_layer_2.png?raw=true "Charybdis HU ISO Full Layer 2")
-![Layout](charybdis-full_layer_3.png?raw=true "Charybdis HU ISO Full Layer 3")
+![Charybdis Full Layout](charybdis_full_layer_0.png?raw=true "Charybdis HU ISO Full Layer 0")
+![Charybdis Full Layout](charybdis_full_layer_1.png?raw=true "Charybdis HU ISO Full Layer 1")
+![Charybdis Full Layout](charybdis_full_layer_2.png?raw=true "Charybdis HU ISO Full Layer 2")
+![Charybdis Full Layout](charybdis_full_layer_3.png?raw=true "Charybdis HU ISO Full Layer 3")

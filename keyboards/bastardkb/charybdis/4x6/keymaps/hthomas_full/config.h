@@ -16,9 +16,6 @@
  */
 #pragma once
 
-#define PERMISSIVE_HOLD
-#define CHORDAL_HOLD
-
 #ifdef VIA_ENABLE
 /* VIA configuration. */
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 4

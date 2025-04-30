@@ -5,7 +5,7 @@ This is a template repository which allows for an external set of QMK keymaps to
 ## Keymaps in this repository
 
 * bastardkb/charybdis/4x6 : various HU-ISO keymaps for the Charybdis. See bastardkb/charybdis/4x6/README.MD.
-* keychron/q8/iso_encoder : ISO keymaps for Q8 with FN indicator toogle with vial support
+* keychron/q8/iso_encoder : ISO keymaps for Q8 with FN indicator toogle with vial support. See README.MD in each keymap.
 
 ## Howto configure your build targets
 

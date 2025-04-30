@@ -28,3 +28,8 @@ Use this with a Hungarian layout, otherwise numbers (zero) and symbols will be m
 4x6 Hungarian layout for Charybdis using trying to follow the origninal QWERTY as much as possible.
 
 Use this with a Hungarian layout, otherwise numbers (zero) and symbols will be messed up.
+
+![Layout](charybdis-full_layer_0.png?raw=true "Charybdis HU ISO Full Layer 0")
+![Layout](charybdis-full_layer_1.png?raw=true "Charybdis HU ISO Full Layer 1")
+![Layout](charybdis-full_layer_2.png?raw=true "Charybdis HU ISO Full Layer 2")
+![Layout](charybdis-full_layer_3.png?raw=true "Charybdis HU ISO Full Layer 3")

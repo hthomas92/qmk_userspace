@@ -1,52 +1,11 @@
-# Custom keymap and FN indicators for Keychron Q8
-
-## Firmware features
-
-* Set TAPPING_TOGGLE to 2
-* Highlight FN1 and FN2 buttons when the respective layers are active
-* VIA compatible
-* Caps Lock indicator on default location
-
-## Keymap
-
-### Default 65% layout
-
-Base - layer 1
-
-![Base](layout_l1.png?raw=true "Base - layer 1")
-
-FN1 - layer 3
-
-![FN1](layout_l3.png "FN1 - layer 3")
-
-FN2 - layer 4
-
-![FN2](layout_l4.png "FN2 - layer 4")
-
-### Experimental 40% layout
-
-Switch to MAC mode to enable it.
-
-Base - layer 0
-
-![Base](layout_l0.png?raw=true "Base - layer 0")
-
-FN1 - layer 2
-
-![FN1](layout_l2.png "FN1 - layer 2")
-
-FN2 - layer 4
-
-![FN2](layout_l4.png "FN2 - layer 4")
-
-## Macros
-
-* M0 (Layer 4, B): {+KC_LSFT}{+KC_7}{-KC_7}{-KC_LSFT}
-* M1 (Layer 3, Q): {+KC_LALT}{+KC_F4}{-KC_F4}{-KC_LALT}
-
 # QMK Userspace
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
+
+## Keymaps in this repository
+
+* bastardkb/charybdis/4x6 : various HU-ISO keymaps for the Charybdis. See bastardkb/charybdis/4x6/README.MD.
+* keychron/q8/iso_encoder : ISO keymaps for Q8 with FN indicator toogle with vial support
 
 ## Howto configure your build targets
 

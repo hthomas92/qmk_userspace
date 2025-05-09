@@ -67,6 +67,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define BSPC_NUP LT(LAYER_NUMPAD, KC_BSPC)
 #define SPC_NAV LT(LAYER_NAVI, KC_SPC)
 #define ENT_FUN LT(LAYER_FUNC, KC_ENT)
+#define ENT_ACC LT(LAYER_ACCENTS, KC_ENT)
 
 #define KC_WPRV KC_WWW_BACK
 #define KC_WNXT KC_WWW_FORWARD
@@ -78,6 +79,10 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
+
+#define MO_FUN MO(LAYER_FUNC)
+#define MO_ACC MO(LAYER_ACCENTS)
+#define MO_NAV MO(LAYER_NAV)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -103,6 +108,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
+  /*
+  // Classic layout with MT and LT
   [LAYER_NO_HOME_MODS] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_ESC, KC_CALC, KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT,    KC_PSCR, KC_PAUS,  KC_NUHS,    KC_0, KC_MINS,  KC_EQL,
@@ -117,12 +124,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            KC_LGUI,  KC_DEL,     KC_RALT
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
+  */
+
+  // Game layout without MT and LT
+  [LAYER_NO_HOME_MODS] = LAYOUT(
+    // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
+          KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,  KC_0,    KC_BSPC,
+    // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+          KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_ENT,
+    // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+         KC_LSFT,   KC_A,     KC_S,    KC_D,    KC_F,    KC_G,       KC_H,   KC_J,   KC_K,     KC_L,  KC_SCLN,  KC_RSFT,
+    // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+         KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH,  KC_RCTL,
+    // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
+                                    KC_LALT, KC_SPC,   MO_FUN,      MO_ACC,  MO_NAV,
+                                             KC_LGUI,  KC_ESC,     KC_RALT
+    //                            ╰───────────────────────────╯ ╰──────────────────╯
+    ),
 
   [LAYER_NUMBERS] = LAYOUT(
     // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-         _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,  KC_GRV, XXXXXXX,
+         XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,  KC_GRV, XXXXXXX,
     // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
          _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, CW_TOGG,    KC_CAPS, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, _______,
     // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤

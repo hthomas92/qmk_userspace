@@ -23,6 +23,7 @@
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
     LAYER_NO_HOME_MODS,
+    LAYER_GAME,
     LAYER_NUMBERS,
     LAYER_ACCENTS,
     LAYER_NUMPAD,
@@ -74,6 +75,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define DF_BASE DF(LAYER_BASE)
 #define DF_EXT  DF(LAYER_NO_HOME_MODS)
+#define DF_GAME DF(LAYER_GAME)
 #define DF_NP   DF(LAYER_NUMPAD)
 #define DF_NAV  DF(LAYER_NAVI)
 
@@ -82,7 +84,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define MO_FUN MO(LAYER_FUNC)
 #define MO_ACC MO(LAYER_ACCENTS)
-#define MO_NAV MO(LAYER_NAV)
+#define MO_NAV MO(LAYER_NAVI)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -108,7 +110,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
-  /*
   // Classic layout with MT and LT
   [LAYER_NO_HOME_MODS] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
@@ -124,10 +125,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            KC_LGUI,  KC_DEL,     KC_RALT
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
-  */
 
   // Game layout without MT and LT
-  [LAYER_NO_HOME_MODS] = LAYOUT(
+  [LAYER_GAME] = LAYOUT(
     // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
           KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,  KC_0,    KC_BSPC,
     // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
          KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH,  KC_RCTL,
     // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                    KC_LALT, KC_SPC,   MO_FUN,      MO_ACC,  MO_NAV,
+                                    KC_LALT, KC_SPC,   MO_FUN,     MO_ACC,  MO_NAV,
                                              KC_LGUI,  KC_ESC,     KC_RALT
     //                            ╰───────────────────────────╯ ╰──────────────────╯
     ),
@@ -209,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, KC_PGUP,  KC_HOME, KC_UP,   KC_END,  KC_DEL,    XXXXXXX, KC_PSCR, KC_SCRL, KC_PAUS,  KC_NUM, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, _______,
+       _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,    DF_GAME, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        _______, KC_PGDN, KC_MPRV, KC_MPLY, KC_MNXT,  KC_INS,     DF_EXT, DF_BASE,   DF_NP,  DF_NAV, XXXXXXX, _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯

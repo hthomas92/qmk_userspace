@@ -19,9 +19,16 @@
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD
 
+#define CAPS_WORD_INVERT_ON_SHIFT
+
+// Configure the global tapping term (default: 200ms)
+#define TAPPING_TERM 230
+
+#define QUICK_TAP_TERM 150
+
 #ifdef VIA_ENABLE
 /* VIA configuration. */
-#    define DYNAMIC_KEYMAP_LAYER_COUNT 9
+#    define DYNAMIC_KEYMAP_LAYER_COUNT 8
 #endif // VIA_ENABLE
 
 #ifndef __arm__

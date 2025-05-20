@@ -3,14 +3,15 @@
 ## hthomas
 
 4x6 Hungarian layout for Charybdis.
-A compact layout which uses the full 4x6 matrix, intended for Hungarian characters.
+A compact layout which uses the full 4x6 matrix, intended for Hungarian characters using the Hungarian keymap.
 
-The base layer uses home-row mods and fits into the 3x5 matrix (besides the accents).
-The second layer is for games and provides a classic layout with Ctrl, Shift, Tab and Esc on the outermost columns, without home-row mods.
+For users using the US layout, swap KC_0 with KC_GRV and rearrange KC_MINS, KC_EQL, KC_LBRC, KC_RBRC and KC_QUOT where needed.
+
+The base layer uses home-row mods and fits into the 3x5 matrix (besides the letters with accents).
+The second layer has a classic layout without home row mod but it uses MT and LT to comfortably access Ctrl, Shift, Tab and Esc on the outermost columns, and switch layers with Space and Backspace.
+The third layer is for games and provides a classic layout with Ctrl, Shift, Tab and Esc on the outermost columns, without home-row mods and Mod and Layer taps. Symbls and letters with accents are accessed on the Num layer.
 
 The layout has separate layers for numbers, numpad, function keys and navigation keys, all available from the thumb cluster.
-
-Use this with a Hungarian layout, otherwise numbers (zero) and symbols will be messed up.
 
 ## hthomas_compact
 

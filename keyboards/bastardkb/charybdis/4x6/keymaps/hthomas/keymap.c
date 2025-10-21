@@ -196,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,    DF_GAME, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,  KC_INS,     DF_EXT, DF_BASE,   DF_NP,  DF_NAV, XXXXXXX, _______,
+       _______, KC_PGDN, KC_WPRV, KC_WREF, KC_WNXT,  KC_INS,     DF_EXT, DF_BASE,   DF_NP,  DF_NAV, XXXXXXX, _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_RALT, _______,  KC_APP,    _______, _______,
                                             XXXXXXX, XXXXXXX,    XXXXXXX

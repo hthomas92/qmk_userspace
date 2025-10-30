@@ -19,12 +19,25 @@
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD
 
-#define CAPS_WORD_INVERT_ON_SHIFT
-
-// Configure the global tapping term (default: 200ms)
-#define TAPPING_TERM 230
-
+#define TAPPING_TERM 200
 #define QUICK_TAP_TERM 150
+#define COMBO_TERM 40
+#define FLOW_TAP_TERM 40
+
+//#define MK_COMBINED
+//#define MOUSEKEY_DELAY	        150
+//#define MOUSEKEY_INTERVAL   	16
+//#define MOUSEKEY_FRICTION   	24
+//#define MOUSEKEY_MOVE_DELTA	    1
+//#define MOUSEKEY_MAX_SPEED  	32
+//#define MOUSEKEY_TIME_TO_MAX    32
+
+#define MOUSEKEY_DELAY   	    15
+#define MOUSEKEY_INTERVAL	    16
+#define MOUSEKEY_MOVE_DELTA 	6
+#define MOUSEKEY_MAX_SPEED  	10
+#define MOUSEKEY_TIME_TO_MAX	30
+
 
 #ifdef VIA_ENABLE
 /* VIA configuration. */

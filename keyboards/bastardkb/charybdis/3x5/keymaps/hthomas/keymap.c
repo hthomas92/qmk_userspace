@@ -68,6 +68,45 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    define SNIPING KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
+
+// Combos for Hungarian accentuated characters, layout 1
+// Hungarian characters centered around the home row, in the inner 3 columns
+/*
+const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
+const uint16_t PROGMEM combo_ER[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
+const uint16_t PROGMEM combo_CV[] = {KC_C, _L_PTR(KC_V), COMBO_END};
+const uint16_t PROGMEM combo_UI[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
+const uint16_t PROGMEM combo_MCOMM[] = {_L_PTR(KC_M), KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM combo_FG[] = {LSFT_T(KC_F), KC_G, COMBO_END};
+const uint16_t PROGMEM combo_HJ[] = {KC_H, RSFT_T(KC_J), COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(combo_SD, KC_NUBS),
+    COMBO(combo_ER, KC_EQUAL),
+    COMBO(combo_DF, KC_0),
+    COMBO(combo_CV, KC_LBRC),
+    COMBO(combo_UI, KC_RBRC),
+    COMBO(combo_JK, KC_MINS),
+    COMBO(combo_MCOMM, KC_NUHS),
+    COMBO(combo_KL, KC_QUOT),
+    COMBO(combo_FG, LSFT(KC_8)),
+    COMBO(combo_HJ, LSFT(KC_9)),
+};
+*/
+
+// Combos for Hungarian accentuated characters, layout 2
+// Hungarian characters placed in the home row, extra symbols added to the top and bottom rows
+const uint16_t PROGMEM combo_QW[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_WE[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_ER[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_RT[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_ZU[] = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_UI[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_IO[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_OP[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_AS[] = {LGUI_T(KC_A), LALT_T(KC_S), COMBO_END};
 const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
 const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
@@ -76,17 +115,44 @@ const uint16_t PROGMEM combo_HJ[] = {KC_H, RSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_LÉ[] = {LALT_T(KC_L), RGUI_T(KC_SCLN), COMBO_END};
+const uint16_t PROGMEM combo_YX[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_XC[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_CV[] = {KC_C, _L_PTR(KC_V), COMBO_END};
+const uint16_t PROGMEM combo_VB[] = {_L_PTR(KC_V), KC_B, COMBO_END};
+const uint16_t PROGMEM combo_NM[] = {KC_N, _L_PTR(KC_M), COMBO_END};
+const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_COMM_DOT[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_DOT_SLSH[] = {KC_DOT, KC_SLSH, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(combo_AS, KC_NUBS),
-    COMBO(combo_SD, KC_EQUAL),
-    COMBO(combo_DF, KC_0),
-    COMBO(combo_FG, KC_LBRC),
-    COMBO(combo_HJ, KC_RBRC),
-    COMBO(combo_JK, KC_MINS),
-    COMBO(combo_KL, KC_NUHS),
-    COMBO(combo_LÉ, KC_QUOT),
+    COMBO(combo_QW, RALT(KC_M)), // <
+    COMBO(combo_WE, RALT(KC_B)), // {
+    COMBO(combo_ER, RALT(KC_F)), // [
+    COMBO(combo_RT, LSFT(KC_8)), // (
+    COMBO(combo_ZU, LSFT(KC_9)), // )
+    COMBO(combo_UI, RALT(KC_G)), // ]
+    COMBO(combo_IO, RALT(KC_N)), // }
+    COMBO(combo_OP, RALT(KC_DOT)), // >
+
+    COMBO(combo_AS, KC_NUBS), // í
+    COMBO(combo_SD, KC_EQUAL), // ó
+    COMBO(combo_DF, KC_0), // ö
+    COMBO(combo_FG, KC_LBRC), // ő
+    COMBO(combo_HJ, KC_RBRC), // ú
+    COMBO(combo_JK, KC_MINS), // ü
+    COMBO(combo_KL, KC_NUHS), // ű
+    COMBO(combo_LÉ, KC_QUOT), // á
+
+    COMBO(combo_YX, RALT(KC_X)), // #
+    COMBO(combo_XC, RALT(KC_C)), // &
+    COMBO(combo_CV, RALT(KC_V)), // @
+    COMBO(combo_VB, LSFT(KC_6)), // /
+    COMBO(combo_NM, RALT(KC_Q)), // backslash
+    COMBO(combo_M_COMM, RALT(KC_SCLN)), // $
+    COMBO(combo_COMM_DOT, RALT(KC_SLASH)), // *
+    COMBO(combo_DOT_SLSH, RALT(KC_COMMA)), // ;
 };
+
 
 // clang-format off
 /** \brief QWERTY layout (3 rows, 10 columns). */
@@ -119,9 +185,9 @@ combo_t key_combos[] = {
 
 /** \brief Pointing Layer for trackball controls and mouse click and misc */
 #define LAYOUT_LAYER_POINTER                                                                  \
-    DPI_MOD,  S_D_MOD, RM_TOGG,   EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, RM_TOGG,  S_D_MOD, DPI_MOD, \
+    S_D_RMOD, DPI_RMOD, RM_TOGG,   EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, RM_TOGG, DPI_RMOD, S_D_RMOD, \
     KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
-    DPI_RMOD, S_D_RMOD, DRGSCRL, _______, SNIPING, SNIPING, _______, DRGSCRL, S_D_RMOD, DPI_RMOD, \
+    S_D_MOD, DPI_MOD, DRGSCRL, _______, SNIPING, SNIPING, _______, DRGSCRL, DPI_MOD, S_D_MOD, \
                       KC_BTN2, KC_BTN1, KC_BTN3, KC_BTN3, KC_BTN1
 
 /** \brief Symbols layer - mostly for Hungarian special characters with AltGr */
@@ -133,9 +199,9 @@ combo_t key_combos[] = {
 
 /** \brief Mouse layer - traditional keyboard mouse controls and media controls */
 #define LAYOUT_LAYER_MOUSE                                                               \
-    KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, XXXXXXX, MS_ACL0, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, \
-    KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, MS_ACL2, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
-    KC_WH_D, KC_WBAK, KC_WREF, KC_WFWD, KC_BTN3, MS_ACL1, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, \
+    KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, XXXXXXX, MS_ACL2, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, \
+    KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, MS_ACL1, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
+    KC_WH_D, KC_WBAK, KC_WREF, KC_WFWD, KC_BTN3, MS_ACL0, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, \
                       _______, _______, _______, _______, _______
 
 /** \brief Navigation layer. */
@@ -245,4 +311,83 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Forward-declare this helper function since it is defined in
 // rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
+#endif
+
+// Turn off chordal hold when using drag on the pointer layer
+// Turn off chordal hold for the thumb button layer taps
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t* other_record) {
+    // Exceptionally allow some one-handed chords for hotkeys.
+    switch (tap_hold_keycode) {
+        case TAB_SYM:
+        case SPC_FUN:
+        case ESC_NUM:
+        case ENT_MOU:
+        case SPC_NAV:
+            return true;
+
+        case _L_PTR(KC_V):
+            if (other_keycode == KC_C) {
+                return true;
+            }
+            break;
+
+        case _L_PTR(KC_M):
+            if (other_keycode == KC_COMM) {
+                return true;
+            }
+            break;
+    }
+    // Otherwise defer to the opposite hands rule.
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    return true;
+    /*
+    switch (keycode) {
+        case _L_PTR(KC_V):
+        case _L_PTR(KC_M):
+            // Do not select the hold action when another key is tapped.
+            return false;
+        default:
+            // Immediately select the hold action when another key is tapped.
+            return true;
+    }
+    */
+}
+
+// Allow quickly enter numbers and symbols with the thumb keys
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case TAB_SYM:
+        case SPC_FUN:
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
+
+// Use tap-only combos for Hungarian accents
+// This will prevent writing 'ööööööööööö' by holding down the combo,
+// but make easier to use home row mods when they overlap with combos.
+#ifdef COMBO_MUST_TAP_PER_COMBO
+bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
+    // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
+    uint16_t key;
+    uint8_t idx = 0;
+    while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {
+        switch (key) {
+            case QK_MOD_TAP...QK_MOD_TAP_MAX:
+            case QK_LAYER_TAP...QK_LAYER_TAP_MAX:
+            case QK_MOMENTARY...QK_MOMENTARY_MAX:
+                return true;
+        }
+        idx += 1;
+    }
+    return false;
+
+}
 #endif

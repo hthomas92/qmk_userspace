@@ -25,7 +25,7 @@ Keymaps for splitkb Halcyon keyboards are available on the halcyon branch.
 
 ### Push from QMK MSYS:
 
-1. ``eval `ssh-agent -s```
+1. ``eval `ssh-agent -s` ``
 1. `ssh-add /c/users/xxx/.ssh/id_ed25519`
 1. `git push`
 

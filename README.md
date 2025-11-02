@@ -12,7 +12,7 @@ main branch
 halcyon branch
 * splitkb halcyon Ferris
 
-###Build instructions:
+### Build instructions:
 
 * `qmk compile -c -kb bastardkb/charybdis/3x5 -km hthomas`
 * `qmk compile -c -kb bastardkb/charybdis/4x6 -km hthomas
@@ -22,6 +22,12 @@ For compiling the bastardkb, set the qmk_home to the bastardkb fork of the QMK r
 `qmk config user.qmk_home="$(realpath .)"`
 
 Keymaps for splitkb Halcyon keyboards are available on the halcyon branch.
+
+### Push from QMK MSYS:
+
+1 eval `ssh-agent -s`
+1 ssh-add /c/users/xxx/.ssh/id_ed25519
+1 git push
 
 ## Howto configure your build targets
 

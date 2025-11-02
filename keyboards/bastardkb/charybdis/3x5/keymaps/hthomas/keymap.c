@@ -47,8 +47,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #define TAB_FUN LT(LAYER_FUN_NUM, KC_TAB)
-#define SPC_SYM LT(LAYER_SYM, KC_SPC)
-#define ESC_NUM LT(LAYER_NUMPAD, KC_ESC)
+#define ESC_SYM LT(LAYER_SYM, KC_ESC)
+#define SPC_NUM LT(LAYER_NUMPAD, KC_SPC)
 #define ESC_FUN LT(LAYER_FUN_NUM, KC_ESC)
 
 #define ENT_MOU LT(LAYER_MOUSE, KC_ENT)
@@ -212,7 +212,7 @@ combo_t key_combos[] = {
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, \
-                      TAB_FUN, SPC_SYM, ESC_NUM, ENT_MOU, SPC_NAV
+                      TAB_FUN, ESC_SYM, SPC_NUM, ENT_MOU, SPC_NAV
 
 /** \brief QWERTY layout (3 rows, 10 columns) without Home row mods */
 #define LAYOUT_LAYER_GAME                                                                     \
@@ -278,7 +278,7 @@ combo_t key_combos[] = {
     KC_PGUP,  KC_HOME, KC_UP,   KC_END,  KC_DEL,    KC_CAPS, KC_PSCR, KC_SCRL, KC_PAUS, KC_NUM, \
     KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,    CM_TOGG, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
     KC_PGDN, KC_WBAK, KC_WREF, KC_WFWD,  KC_INS,    DF_GAME, DF_BASE,   DF_NP,  DF_NAV, KC_APP, \
-                      KC_TAB,  KC_SPC,  KC_ESC, _______, _______
+                      KC_TAB,  KC_ESC,  KC_SPC, _______, _______
 
 /**
  * \brief Add Home Row mod to a layout.
@@ -389,8 +389,8 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Exceptionally allow some one-handed chords for hotkeys.
     switch (tap_hold_keycode) {
         case TAB_FUN:
-        case SPC_SYM:
-        case ESC_NUM:
+        case ESC_SYM:
+        case SPC_NUM:
         case ESC_FUN:
         case ENT_MOU:
         case SPC_NAV:
@@ -431,7 +431,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case TAB_FUN:
-        case SPC_SYM:
+        case ESC_SYM:
         case ESC_FUN:
             // Immediately select the hold action when another key is pressed.
             return true;

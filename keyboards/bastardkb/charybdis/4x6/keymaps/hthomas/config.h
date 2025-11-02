@@ -17,12 +17,19 @@
 #pragma once
 
 #define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+
 #define CHORDAL_HOLD
+
+#define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 #define TAPPING_TERM 200
 #define QUICK_TAP_TERM 150
 #define COMBO_TERM 40
 #define FLOW_TAP_TERM 40
+
+#define COMBO_MUST_TAP_PER_COMBO
 
 //#define MK_COMBINED
 //#define MOUSEKEY_DELAY	        150

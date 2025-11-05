@@ -42,6 +42,7 @@ const uint16_t PROGMEM combo_M_COMM[] = {KC_M, SM_COMM, COMBO_END};
 const uint16_t PROGMEM combo_LeftThumbs[] = {TAB_FUN, ESC_NUM, COMBO_END};
 const uint16_t PROGMEM combo_BootLoader[] = {KC_CAPS, KC_PSCR, COMBO_END};
 const uint16_t PROGMEM combo_Clear[] = {KC_PSCR, KC_SCRL, COMBO_END};
+const uint16_t PROGMEM combo_Backlight[] = {KC_SCRL, KC_PAUS, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_ER, KC_EQUAL), // ó
@@ -54,7 +55,8 @@ combo_t key_combos[] = {
     COMBO(combo_M_COMM, KC_NUHS), // ű
     COMBO(combo_LeftThumbs, KC_SPC),
     COMBO(combo_BootLoader, QK_BOOT),
-    COMBO(combo_BootLoader, QK_CLEAR),
+    COMBO(combo_Clear, EE_CLR),
+    COMBO(combo_Backlight, RM_TOGG),
 };
 
 // clang-format off

@@ -1,0 +1,69 @@
+{
+    "userspace_version": "1.1",
+    "build_targets": [
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "vial_hlc",
+            {
+                "HLC_TFT_DISPLAY": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_vial_hlc_display"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "vial_hlc",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_vial_hlc_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "vial_hlc",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_vial_hlc_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "vial_hlc",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_vial_hlc"
+            }
+        ],
+		[
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_TFT_DISPLAY": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas_display"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas"
+            }
+        ]
+    ]
+}

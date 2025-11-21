@@ -47,12 +47,18 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #define TAB_FUN LT(LAYER_FUN_NUM, KC_TAB)
-#define ESC_SYM LT(LAYER_SYM, KC_ESC)
-#define SPC_NUM LT(LAYER_NUMPAD, KC_SPC)
+#define ESC_NUM LT(LAYER_NUMPAD, KC_ESC)
+#define SPC_SYM LT(LAYER_SYM, KC_SPC)
 #define ESC_FUN LT(LAYER_FUN_NUM, KC_ESC)
 
 #define ENT_MOU LT(LAYER_MOUSE, KC_ENT)
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
+
+#define SM_Z LT(LAYER_SYM, KC_Z)
+#define SM_SLSH LT(LAYER_SYM, KC_SLSH)
+
+#define SM_C LT(LAYER_SYM, KC_C)
+#define SM_COMM LT(LAYER_SYM, KC_COMM)
 
 #define DF_BASE DF(LAYER_BASE)
 #define DF_GAME DF(LAYER_GAME)
@@ -76,8 +82,8 @@ const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
 const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
 const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM combo_CV[] = {KC_C, _L_PTR(KC_V), COMBO_END};
-const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_CV[] = {SM_C, _L_PTR(KC_V), COMBO_END};
+const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), SM_COMM, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_ER, KC_EQUAL), // ó
@@ -211,15 +217,15 @@ combo_t key_combos[] = {
 #define LAYOUT_LAYER_BASE                                                                     \
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
-       KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, \
-                      TAB_FUN, ESC_SYM, SPC_NUM, ENT_MOU, SPC_NAV
+       SM_Z,    KC_X,    SM_C,    KC_V,    KC_B,    KC_N,    KC_M, SM_COMM,  KC_DOT, SM_SLSH, \
+                      TAB_FUN, ESC_NUM, SPC_SYM, ENT_MOU, SPC_NAV
 
 /** \brief QWERTY layout (3 rows, 10 columns) without Home row mods */
 #define LAYOUT_LAYER_GAME                                                                     \
        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
        KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
        KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, \
-                      KC_LALT, KC_SPC, ESC_FUN, ENT_MOU, SPC_NAV
+                      KC_SPC, KC_LALT, ESC_FUN, ENT_MOU, SPC_NAV
 
 /** \brief Numbers and Function layer. */
 #define LAYOUT_LAYER_FUN_NUM                                                                 \
@@ -230,9 +236,9 @@ combo_t key_combos[] = {
 
 /** \brief Numpad Layer */
 #define LAYOUT_LAYER_NUMPAD                                                                    \
-    XXXXXXX, XXXXXXX, KC_NUM, KC_TAB,  KC_DEL,     KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
-    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_PENT,    KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
-    XXXXXXX, XXXXXXX, XXXXXXX, LSFT(KC_TAB), KC_BSPC,      KC_P0,   KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
+    KC_NUM,    XXXXXXX,LSFT(KC_TAB), KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
+    KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   KC_PENT, KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
+    LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
                       _______, _______, _______,    KC_PENT, _______
 
 /** \brief Pointing Layer for trackball controls and mouse click and misc */
@@ -389,21 +395,21 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Exceptionally allow some one-handed chords for hotkeys.
     switch (tap_hold_keycode) {
         case TAB_FUN:
-        case ESC_SYM:
-        case SPC_NUM:
+        case ESC_NUM:
+        case SPC_SYM:
         case ESC_FUN:
         case ENT_MOU:
         case SPC_NAV:
             return true;
 
         case _L_PTR(KC_V):
-            if (other_keycode == KC_C) {
+            if (other_keycode == SM_C) {
                 return true;
             }
             break;
 
         case _L_PTR(KC_M):
-            if (other_keycode == KC_COMM) {
+            if (other_keycode == SM_COMM) {
                 return true;
             }
             break;
@@ -431,7 +437,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case TAB_FUN:
-        case ESC_SYM:
+        case ESC_NUM:
         case ESC_FUN:
             // Immediately select the hold action when another key is pressed.
             return true;

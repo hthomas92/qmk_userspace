@@ -62,12 +62,18 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define CTL_RBRC MT(MOD_RCTL, KC_RBRC)
 
 #define TAB_FUN LT(LAYER_FUN_NUM, KC_TAB)
-#define ESC_SYM LT(LAYER_SYM, KC_ESC)
-#define SPC_NUM LT(LAYER_NUMPAD, KC_SPC)
+#define ESC_NUM LT(LAYER_NUMPAD, KC_ESC)
+#define SPC_SYM LT(LAYER_SYM, KC_SPC)
 #define ESC_FUN LT(LAYER_FUN_NUM, KC_ESC)
 
 #define ENT_MOU LT(LAYER_MOUSE, KC_ENT)
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
+
+#define SM_Z LT(LAYER_SYM, KC_Z)
+#define SM_SLSH LT(LAYER_SYM, KC_SLSH)
+
+#define SM_C LT(LAYER_SYM, KC_C)
+#define SM_COMM LT(LAYER_SYM, KC_COMM)
 
 #define DF_BASE DF(LAYER_BASE)
 #define DF_GAME DF(LAYER_GAME)
@@ -89,37 +95,52 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif // !POINTING_DEVICE_ENABLE
 
 // Home row mod combos, not used on 4x6
-// const uint16_t PROGMEM combo_AS[] = {LGUI_T(KC_A), LALT_T(KC_S), COMBO_END};
-// const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
-// const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
-// const uint16_t PROGMEM combo_FG[] = {LSFT_T(KC_F), KC_G, COMBO_END};
-// const uint16_t PROGMEM combo_HJ[] = {KC_H, RSFT_T(KC_J), COMBO_END};
-// const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
-// const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
-// const uint16_t PROGMEM combo_LÉ[] = {LALT_T(KC_L), RGUI_T(KC_SCLN), COMBO_END};
-
-// Use combos on the game layer for typing, can be disabled from the nav layer
-const uint16_t PROGMEM combo_AS[] = {KC_A,KC_S, COMBO_END};
-const uint16_t PROGMEM combo_SD[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM combo_DF[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM combo_FG[] = {KC_F, KC_G, COMBO_END};
-const uint16_t PROGMEM combo_HJ[] = {KC_H, KC_J, COMBO_END};
-const uint16_t PROGMEM combo_JK[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM combo_KL[] = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM combo_LÉ[] = {KC_L, KC_SCLN, COMBO_END};
+// Combos for Hungarian accentuated characters
+// Hungarian characters centered around the home row, in the inner 3 columns
+const uint16_t PROGMEM combo_ER[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_UI[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
+const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
+const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
+const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM combo_CV[] = {SM_C, _L_PTR(KC_V), COMBO_END};
+const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), SM_COMM, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(combo_AS, KC_NUBS),
-    COMBO(combo_SD, KC_EQUAL),
-    COMBO(combo_DF, KC_0),
-    COMBO(combo_FG, KC_LBRC),
-    COMBO(combo_HJ, KC_RBRC),
-    COMBO(combo_JK, KC_MINS),
-    COMBO(combo_KL, KC_NUHS),
-    COMBO(combo_LÉ, KC_QUOT),
+    COMBO(combo_ER, KC_EQUAL), // ó
+    COMBO(combo_UI, KC_RBRC), // ú
+    COMBO(combo_SD, KC_NUBS), // í
+    COMBO(combo_DF, KC_0), // ö
+    COMBO(combo_JK, KC_MINS), // ü
+    COMBO(combo_KL, KC_QUOT), // á
+    COMBO(combo_CV, KC_LBRC), // ő
+    COMBO(combo_M_COMM, KC_NUHS), // ű
 };
 
+// Use combos on the game layer for typing, can be disabled from the nav layer
+// const uint16_t PROGMEM combo_AS[] = {KC_A,KC_S, COMBO_END};
+// const uint16_t PROGMEM combo_SD[] = {KC_S, KC_D, COMBO_END};
+// const uint16_t PROGMEM combo_DF[] = {KC_D, KC_F, COMBO_END};
+// const uint16_t PROGMEM combo_FG[] = {KC_F, KC_G, COMBO_END};
+// const uint16_t PROGMEM combo_HJ[] = {KC_H, KC_J, COMBO_END};
+// const uint16_t PROGMEM combo_JK[] = {KC_J, KC_K, COMBO_END};
+// const uint16_t PROGMEM combo_KL[] = {KC_K, KC_L, COMBO_END};
+// const uint16_t PROGMEM combo_LÉ[] = {KC_L, KC_SCLN, COMBO_END};
+
+// combo_t key_combos[] = {
+//     COMBO(combo_AS, KC_NUBS),
+//     COMBO(combo_SD, KC_EQUAL),
+//     COMBO(combo_DF, KC_0),
+//     COMBO(combo_FG, KC_LBRC),
+//     COMBO(combo_HJ, KC_RBRC),
+//     COMBO(combo_JK, KC_MINS),
+//     COMBO(combo_KL, KC_NUHS),
+//     COMBO(combo_LÉ, KC_QUOT),
+// };
+
 // clang-format off
+// Classic Hungarian accents, only NUHS and KC_RBRC is changed
+/*
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
@@ -129,9 +150,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_NUBS,   GUI_A,   ALT_S,   CTL_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   CTL_K,   ALT_L,   GUI_É, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,    KC_Z,    KC_X,    KC_C,    PT_V,    KC_B,       KC_N,    PT_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RBRC,
+       XXXXXXX,    KC_Z,    KC_X,    SM_C,    PT_V,    KC_B,       KC_N,    PT_M, SM_COMM,  KC_DOT, KC_SLSH, KC_RBRC,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  TAB_FUN, ESC_SYM, SPC_NUM,     ENT_MOU, SPC_NAV,
+                                  TAB_FUN, ESC_NUM, SPC_SYM,     ENT_MOU, SPC_NAV,
+                                           XXXXXXX, XXXXXXX,     KC_RALT
+  //                            ╰───────────────────────────╯ ╰──────────────────╯
+  ),
+  */
+
+  // Alternative Hungarian layout
+  const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  [LAYER_BASE] = LAYOUT(
+  // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
+       KC_EQUAL,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,  KC_GRV,  KC_RBRC,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       KC_0,       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       KC_NUBS,   GUI_A,   ALT_S,   CTL_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   CTL_K,   ALT_L,   GUI_É, KC_QUOT,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       KC_LBRC,    SM_Z,    KC_X,    SM_C,    PT_V,    KC_B,       KC_N,    PT_M, SM_COMM,  KC_DOT, SM_SLSH, KC_NUHS,
+  // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
+                                  TAB_FUN, ESC_NUM, SPC_SYM,     ENT_MOU, SPC_NAV,
                                            XXXXXXX, XXXXXXX,     KC_RALT
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
@@ -185,11 +224,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, KC_NUM, KC_TAB,  KC_DEL,      KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_PMNS, XXXXXXX,
+       XXXXXXX, KC_NUM,    XXXXXXX,LSFT(KC_TAB), KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_PENT,    KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, _______,
+       _______, KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   KC_PENT, KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, XXXXXXX, XXXXXXX, XXXXXXX, LSFT(KC_TAB),KC_BSPC,  KC_P0,   KC_P1,   KC_P2,   KC_P3, KC_PDOT, _______,
+       _______, LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                     _______, _______, _______,    KC_PENT, _______,
                                              XXXXXXX, XXXXXXX,    XXXXXXX
@@ -292,21 +331,21 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Exceptionally allow some one-handed chords for hotkeys.
     switch (tap_hold_keycode) {
         case TAB_FUN:
-        case ESC_SYM:
-        case SPC_NUM:
+        case ESC_NUM:
+        case SPC_SYM:
         case ESC_FUN:
         case ENT_MOU:
         case SPC_NAV:
             return true;
 
         case _L_PTR(KC_V):
-            if (other_keycode == KC_C) {
+            if (other_keycode == SM_C) {
                 return true;
             }
             break;
 
         case _L_PTR(KC_M):
-            if (other_keycode == KC_COMM) {
+            if (other_keycode == SM_COMM) {
                 return true;
             }
             break;
@@ -334,7 +373,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case TAB_FUN:
-        case ESC_SYM:
+        case ESC_NUM:
         case ESC_FUN:
             // Immediately select the hold action when another key is pressed.
             return true;

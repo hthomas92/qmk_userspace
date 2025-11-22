@@ -21,6 +21,9 @@ enum keymap_layers {
 #define ENT_MOU LT(LAYER_MOUSE, KC_ENT)
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
 
+#define SM_Z LT(LAYER_SYM, KC_Z)
+#define SM_SLSH LT(LAYER_SYM, KC_SLSH)
+
 #define SM_C LT(LAYER_SYM, KC_C)
 #define SM_COMM LT(LAYER_SYM, KC_COMM)
 
@@ -64,7 +67,7 @@ combo_t key_combos[] = {
 #define LAYOUT_LAYER_BASE                                                                     \
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
-       KC_Z,    KC_X,    SM_C,    KC_V,    KC_B,    KC_N,    KC_M, SM_COMM,  KC_DOT, KC_SLSH, \
+       SM_Z,    KC_X,    SM_C,    KC_V,    KC_B,    KC_N,    KC_M, SM_COMM,  KC_DOT, SM_SLSH, \
                       TAB_FUN, ESC_NUM, ENT_MOU, SPC_NAV, \
      KC_MPLY, _______, _______, _______, _______, KC_MPLY, _______, _______, _______, _______
 
@@ -86,9 +89,9 @@ combo_t key_combos[] = {
 
 /** \brief Numpad Layer */
 #define LAYOUT_LAYER_NUMPAD                                                                    \
-    XXXXXXX, XXXXXXX, KC_NUM, KC_TAB,  KC_DEL,     KC_PSLS,   KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
-    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_PENT,    KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
-    XXXXXXX, XXXXXXX, XXXXXXX, LSFT(KC_TAB), KC_BSPC,      KC_P0,   KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
+    KC_NUM,    XXXXXXX,LSFT(KC_TAB), KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
+    KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   KC_PENT, KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
+    LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
                       _______, _______,    KC_PENT, _______, \
      KC_MUTE, _______, _______, _______, _______, KC_MUTE, _______, _______, _______, _______
 
@@ -131,7 +134,7 @@ combo_t key_combos[] = {
     KC_PGUP,  KC_HOME, KC_UP,   KC_END,  KC_DEL,    KC_CAPS, KC_PSCR, KC_SCRL, KC_PAUS, KC_NUM, \
     KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,    CM_TOGG, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
     KC_PGDN, KC_WBAK, KC_WREF, KC_WFWD,  KC_INS,    DF_GAME, DF_BASE,   DF_NP,  DF_NAV, KC_APP, \
-                      KC_SPC,  KC_ESC,  _______, _______, \
+                      KC_TAB,  KC_ESC,  _______, _______, \
      KC_MUTE, _______, _______, _______, _______, KC_MUTE, _______, _______, _______, _______
 
 /**

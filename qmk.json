@@ -1,6 +1,29 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["keychron/q8/iso_encoder", "hthomas92"]
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "hthomas",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_hthomas"
+            }
+        ]
     ]
 }

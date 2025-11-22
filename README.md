@@ -4,24 +4,37 @@ This is a template repository which allows for an external set of QMK keymaps to
 
 ## Keymaps in this repository
 
-main branch
 * bastardkb/charybdis/3x5 : various HU-ISO keymaps for the Charybdis. See bastardkb/charybdis/3x5/README.MD.
 * bastardkb/charybdis/4x6 : various HU-ISO keymaps for the Charybdis. See bastardkb/charybdis/4x6/README.MD.
 * keychron/q8/iso_encoder : ISO keymaps for Q8 with FN indicator toogle with vial support. See README.MD in each keymap.
+* splitkb/halcyon/ferris/hthomas: keymap for Halcyon Ferris
 
-halcyon branch
-* splitkb halcyon Ferris
 
 ### Build instructions:
 
+To build Q8 or BastardKB firmware:
+
+* `qmk compile -c -kb keychron/q8/iso_encoder -km hthomas92`
 * `qmk compile -c -kb bastardkb/charybdis/3x5 -km hthomas`
 * `qmk compile -c -kb bastardkb/charybdis/4x6 -km hthomas`
 
-For compiling the bastardkb, set the qmk_home to the bastardkb fork of the QMK repository:
+To build splitkb Ferris:
+* `qmk userspace-compile`
+
+Ferris build targets are set in `qmk.json`.
+
+For compiling the bastardkb, set the qmk_home to the bastardkb fork of the QMK repository.
+For compiling splitkb Ferris, or Q8, set the qmk home to the latest QMK firmware repository.
+
+To set the QMK firmare directory:
 1. `cd path/to/qmk_firmware`
 1. `qmk config user.qmk_home="$(realpath .)"`
 
-Keymaps for splitkb Halcyon keyboards are available on the halcyon branch.
+### Branches
+
+- main : all keymaps, changes from splitkb_halcyon are also merged here
+- halcyon : used to pull changes from the splitkb repository
+- splitkb_halcyon : points to the halcyon branch, with this repository as upstream
 
 ### Push from QMK MSYS:
 

@@ -236,9 +236,9 @@ combo_t key_combos[] = {
 
 /** \brief Numpad Layer */
 #define LAYOUT_LAYER_NUMPAD                                                                    \
-    KC_NUM,    XXXXXXX,LSFT(KC_TAB), KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
+    KC_NUM,LALT(KC_F4),LSFT(KC_TAB), KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
     KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   KC_PENT, KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
-    LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
+    LCTL(KC_Y),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
                       _______, _______, _______,    KC_PENT, _______
 
 /** \brief Pointing Layer for trackball controls and mouse click and misc */
@@ -269,7 +269,7 @@ combo_t key_combos[] = {
     RALT(KC_1), LSFT(KC_5), RALT(KC_W), LSFT(KC_3), RALT(KC_M), RALT(KC_DOT), LSFT(KC_7), RALT(KC_SCLN), LSFT(KC_GRV), RALT(KC_3), \
     LSFT(KC_1), LSFT(KC_2), RALT(KC_Q), LSFT(KC_8), RALT(KC_F), RALT(KC_G), LSFT(KC_9), LSFT(KC_6), RALT(KC_SLASH), RALT(KC_COMMA), \
     LSFT(KC_4), RALT(KC_X), RALT(KC_C), RALT(KC_V), RALT(KC_B), RALT(KC_N), RALT(KC_7), RALT(KC_5), RALT(KC_9), RALT(KC_0), \
-                      _______, _______, _______, _______, _______
+                      SPC_NAV, ENT_MOU, _______, TAB_FUN, ESC_NUM
 
 
 /** \brief Mouse layer - traditional keyboard mouse controls and media controls */

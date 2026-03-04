@@ -22,13 +22,18 @@
 
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
-    LAYER_GAME = 1,
-    LAYER_FUN_NUM = 2,
-    LAYER_SYM = 3,
-    LAYER_NUMPAD = 4,
-    LAYER_MOUSE = 5,
-    LAYER_NAVIGATION = 6,
-    LAYER_POINTER = 7,
+    LAYER_GAME,
+    LAYER_FUN_NUM,
+    LAYER_FUN_A,
+    LAYER_SYM,
+    LAYER_SYM_A,
+    LAYER_NUMPAD,
+    LAYER_NUMPAD_A,
+    LAYER_MOUSE,
+    LAYER_MOUSE_A,
+    LAYER_NAVIGATION_A,
+    LAYER_NAVIGATION,
+    LAYER_POINTER,
 };
 
 // Automatically enable sniping-mode on the pointer layer.
@@ -51,19 +56,30 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define SPC_SYM LT(LAYER_SYM, KC_SPC)
 #define ESC_FUN LT(LAYER_FUN_NUM, KC_ESC)
 
+#define TAB_FUN_A LT(LAYER_FUN_A, KC_TAB)
+#define ESC_NUM_A LT(LAYER_NUMPAD_A, KC_ESC)
+
 #define ENT_MOU LT(LAYER_MOUSE, KC_ENT)
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
+
+#define ENT_MOU_A LT(LAYER_MOUSE_A, KC_ENT)
+#define SPC_NAV_A LT(LAYER_NAVIGATION_A, KC_SPC)
 
 #define SM_Z LT(LAYER_SYM, KC_Z)
 #define SM_SLSH LT(LAYER_SYM, KC_SLSH)
 
-#define SM_C LT(LAYER_SYM, KC_C)
-#define SM_COMM LT(LAYER_SYM, KC_COMM)
+#define SM_X LT(LAYER_SYM, KC_X)
+#define SM_DOT LT(LAYER_SYM, KC_DOT)
+
+#define SM_C LT(LAYER_SYM_A, KC_C)
+#define SM_COMM LT(LAYER_SYM_A, KC_COMM)
 
 #define DF_BASE DF(LAYER_BASE)
 #define DF_GAME DF(LAYER_GAME)
 #define DF_NP   DF(LAYER_NUMPAD)
 #define DF_NAV  DF(LAYER_NAVIGATION)
+#define DF_NP_A   DF(LAYER_NUMPAD_A)
+#define DF_NAV_A  DF(LAYER_NAVIGATION_A)
 
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
@@ -84,6 +100,7 @@ const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_CV[] = {SM_C, _L_PTR(KC_V), COMBO_END};
 const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), SM_COMM, COMBO_END};
+const uint16_t PROGMEM combo_NAV_A[] = {DF_BASE, DF_NP, DF_NAV, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_ER, KC_EQUAL), // ó
@@ -94,130 +111,16 @@ combo_t key_combos[] = {
     COMBO(combo_KL, KC_QUOT), // á
     COMBO(combo_CV, KC_LBRC), // ő
     COMBO(combo_M_COMM, KC_NUHS), // ű
+    COMBO(combo_NAV_A, DF_NAV_A) // switch to right handed nav layer.
 };
 
-// Combos for Hungarian accentuated characters and specials, layout 2
-// Hungarian characters centered around the home row, in the inner 3 columns
-/*
-const uint16_t PROGMEM combo_QW[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_WE[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_ER[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_RT[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_ZU[] = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_UI[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_IO[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM combo_OP[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_AS[] = {LGUI_T(KC_A), LALT_T(KC_S), COMBO_END};
-const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
-const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
-const uint16_t PROGMEM combo_FG[] = {LSFT_T(KC_F), KC_G, COMBO_END};
-const uint16_t PROGMEM combo_HJ[] = {KC_H, RSFT_T(KC_J), COMBO_END};
-const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
-const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM combo_LÉ[] = {LALT_T(KC_L), RGUI_T(KC_SCLN), COMBO_END};
-const uint16_t PROGMEM combo_YX[] = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_XC[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_CV[] = {KC_C, _L_PTR(KC_V), COMBO_END};
-const uint16_t PROGMEM combo_VB[] = {_L_PTR(KC_V), KC_B, COMBO_END};
-const uint16_t PROGMEM combo_NM[] = {KC_N, _L_PTR(KC_M), COMBO_END};
-const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), KC_COMM, COMBO_END};
-const uint16_t PROGMEM combo_COMM_DOT[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo_DOT_SLSH[] = {KC_DOT, KC_SLSH, COMBO_END};
-
-combo_t key_combos[] = {
-    COMBO(combo_QW, RALT(KC_C)), // &
-    COMBO(combo_WE, RALT(KC_M)), // <
-    COMBO(combo_ER, KC_EQUAL), // ó
-    COMBO(combo_RT, RALT(KC_F)), // [
-    COMBO(combo_ZU, RALT(KC_G)), // ]
-    COMBO(combo_UI, KC_RBRC), // ú
-    COMBO(combo_IO, RALT(KC_DOT)), // >
-    COMBO(combo_OP, RALT(KC_SCLN)), // $
-
-    COMBO(combo_AS, RALT(KC_X)), // #
-    COMBO(combo_SD, KC_NUBS), // í
-    COMBO(combo_DF, KC_0), // ö
-    COMBO(combo_FG, LSFT(KC_8)), // (
-    COMBO(combo_HJ, LSFT(KC_9)), // )
-    COMBO(combo_JK, KC_MINS), // ü
-    COMBO(combo_KL, KC_QUOT), // á
-    COMBO(combo_LÉ, RALT(KC_COMMA)), // ;
-
-    COMBO(combo_YX, RALT(KC_V)), // @
-    COMBO(combo_XC, RALT(KC_Q)), // backslash
-    COMBO(combo_CV, KC_LBRC), // ő
-    COMBO(combo_VB, RALT(KC_B)), // {
-    COMBO(combo_NM, RALT(KC_N)), // }
-    COMBO(combo_M_COMM, KC_NUHS), // ű
-    COMBO(combo_COMM_DOT, LSFT(KC_6)), // slash
-    COMBO(combo_DOT_SLSH, RALT(KC_SLASH)), // *
-};
-*/
-
-// Combos for Hungarian accentuated characters and specials, layout 3
-// Hungarian characters placed in the home row, extra symbols added to the top and bottom rows
-/*
-const uint16_t PROGMEM combo_QW[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_WE[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_ER[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_RT[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_ZU[] = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_UI[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_IO[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM combo_OP[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_AS[] = {LGUI_T(KC_A), LALT_T(KC_S), COMBO_END};
-const uint16_t PROGMEM combo_SD[] = {LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
-const uint16_t PROGMEM combo_DF[] = {LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
-const uint16_t PROGMEM combo_FG[] = {LSFT_T(KC_F), KC_G, COMBO_END};
-const uint16_t PROGMEM combo_HJ[] = {KC_H, RSFT_T(KC_J), COMBO_END};
-const uint16_t PROGMEM combo_JK[] = {RSFT_T(KC_J), RCTL_T(KC_K), COMBO_END};
-const uint16_t PROGMEM combo_KL[] = {RCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM combo_LÉ[] = {LALT_T(KC_L), RGUI_T(KC_SCLN), COMBO_END};
-const uint16_t PROGMEM combo_YX[] = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_XC[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_CV[] = {KC_C, _L_PTR(KC_V), COMBO_END};
-const uint16_t PROGMEM combo_VB[] = {_L_PTR(KC_V), KC_B, COMBO_END};
-const uint16_t PROGMEM combo_NM[] = {KC_N, _L_PTR(KC_M), COMBO_END};
-const uint16_t PROGMEM combo_M_COMM[] = {_L_PTR(KC_M), KC_COMM, COMBO_END};
-const uint16_t PROGMEM combo_COMM_DOT[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo_DOT_SLSH[] = {KC_DOT, KC_SLSH, COMBO_END};
-
-combo_t key_combos[] = {
-    COMBO(combo_QW, RALT(KC_M)), // <
-    COMBO(combo_WE, RALT(KC_B)), // {
-    COMBO(combo_ER, RALT(KC_F)), // [
-    COMBO(combo_RT, LSFT(KC_8)), // (
-    COMBO(combo_ZU, LSFT(KC_9)), // )
-    COMBO(combo_UI, RALT(KC_G)), // ]
-    COMBO(combo_IO, RALT(KC_N)), // }
-    COMBO(combo_OP, RALT(KC_DOT)), // >
-
-    COMBO(combo_AS, KC_NUBS), // í
-    COMBO(combo_SD, KC_EQUAL), // ó
-    COMBO(combo_DF, KC_0), // ö
-    COMBO(combo_FG, KC_LBRC), // ő
-    COMBO(combo_HJ, KC_RBRC), // ú
-    COMBO(combo_JK, KC_MINS), // ü
-    COMBO(combo_KL, KC_NUHS), // ű
-    COMBO(combo_LÉ, KC_QUOT), // á
-
-    COMBO(combo_YX, RALT(KC_X)), // #
-    COMBO(combo_XC, RALT(KC_C)), // &
-    COMBO(combo_CV, RALT(KC_V)), // @
-    COMBO(combo_VB, LSFT(KC_6)), // /
-    COMBO(combo_NM, RALT(KC_Q)), // backslash
-    COMBO(combo_M_COMM, RALT(KC_SCLN)), // $
-    COMBO(combo_COMM_DOT, RALT(KC_SLASH)), // *
-    COMBO(combo_DOT_SLSH, RALT(KC_COMMA)), // ;
-};
-*/
 
 // clang-format off
 /** \brief QWERTY layout (3 rows, 10 columns). */
 #define LAYOUT_LAYER_BASE                                                                     \
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, \
-       SM_Z,    KC_X,    SM_C,    KC_V,    KC_B,    KC_N,    KC_M, SM_COMM,  KC_DOT, SM_SLSH, \
+       SM_Z,    SM_X,    SM_C,    KC_V,    KC_B,    KC_N,    KC_M, SM_COMM,  SM_DOT, SM_SLSH, \
                       TAB_FUN, ESC_NUM, SPC_SYM, ENT_MOU, SPC_NAV
 
 /** \brief QWERTY layout (3 rows, 10 columns) without Home row mods */
@@ -228,24 +131,40 @@ combo_t key_combos[] = {
                       KC_SPC, KC_LALT, ESC_FUN, ENT_MOU, SPC_NAV
 
 /** \brief Numbers and Function layer. */
-#define LAYOUT_LAYER_FUN_NUM                                                                 \
+#define LAYOUT_LAYER_FUN_NUM                                                                \
     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,   KC_7,    KC_8,    KC_9,    KC_GRV, \
-    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_F11, KC_F12, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, \
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_F11, KC_F12, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,\
     KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,  KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10, \
                       _______, _______, _______, KC_RALT, _______
 
+/** \brief Alternative Function layer. */
+#define LAYOUT_LAYER_FUN_A                                                                       \
+    KC_LALT, KC_F7,   KC_F8,   KC_F9,   KC_F12,  XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, \
+    KC_LSFT, KC_F4,   KC_F5,   KC_F6,   KC_F11,  XXXXXXX,  KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,   \
+    KC_LCTL, KC_F1,   KC_F2,   KC_F3,   XXXXXXX, XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, \
+                      _______, _______, _______, KC_RALT, _______
+
+
 /** \brief Numpad Layer */
-#define LAYOUT_LAYER_NUMPAD                                                                    \
-    KC_NUM,LALT(KC_F4),LSFT(KC_TAB), KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
-    KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   KC_PENT, KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
-    LCTL(KC_Y),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
+#define LAYOUT_LAYER_NUMPAD                                                                             \
+    KC_NUM,    LALT(KC_F4),LSFT(KC_TAB),KC_TAB,    KC_DEL,  KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS, \
+    KC_LGUI,   KC_LALT,    KC_LCTL,     KC_LSFT,   KC_PENT, KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS, \
+    LCTL(KC_Y),LCTL(KC_X), LCTL(KC_C),  LCTL(KC_V),KC_BSPC, KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT, \
                       _______, _______, _______,    KC_PENT, _______
 
+/** \brief Numpad Layer, alternative left handed version */
+#define LAYOUT_LAYER_NUMPAD_A                                                                      \
+    KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PMNS,    XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, \
+    KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PPLS,    XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,    \
+    KC_P0,    KC_P1,   KC_P2,   KC_P3, KC_PDOT,    XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, \
+                      _______, _______, _______,   KC_PENT, _______
+
+
 /** \brief Pointing Layer for trackball controls and mouse click and misc */
-#define LAYOUT_LAYER_POINTER                                                                  \
+#define LAYOUT_LAYER_POINTER                                                                       \
     S_D_RMOD, DPI_RMOD, RM_TOGG,   EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, RM_TOGG, DPI_RMOD, S_D_RMOD, \
-    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
-    S_D_MOD, DPI_MOD, DRGSCRL, _______, SNIPING, SNIPING, _______, DRGSCRL, DPI_MOD, S_D_MOD, \
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI,      \
+    S_D_MOD, DPI_MOD, DRGSCRL, _______, SNIPING, SNIPING, _______, DRGSCRL, DPI_MOD, S_D_MOD,      \
                       KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN2, KC_BTN1
 
 /** \brief Symbols layer - mostly for Hungarian special characters with AltGr */
@@ -269,22 +188,43 @@ combo_t key_combos[] = {
     RALT(KC_1), LSFT(KC_5), RALT(KC_W), LSFT(KC_3), RALT(KC_M), RALT(KC_DOT), LSFT(KC_7), RALT(KC_SCLN), LSFT(KC_GRV), RALT(KC_3), \
     LSFT(KC_1), LSFT(KC_2), RALT(KC_Q), LSFT(KC_8), RALT(KC_F), RALT(KC_G), LSFT(KC_9), LSFT(KC_6), RALT(KC_SLASH), RALT(KC_COMMA), \
     LSFT(KC_4), RALT(KC_X), RALT(KC_C), RALT(KC_V), RALT(KC_B), RALT(KC_N), RALT(KC_7), RALT(KC_5), RALT(KC_9), RALT(KC_0), \
-                      SPC_NAV, ENT_MOU, _______, TAB_FUN, ESC_NUM
+                      SPC_NAV, ENT_MOU, KC_SPC, TAB_FUN, ESC_NUM
+
+#define LAYOUT_LAYER_SYM_A                                                             \
+    RALT(KC_1), LSFT(KC_5), RALT(KC_W), LSFT(KC_3), RALT(KC_M), RALT(KC_DOT), LSFT(KC_7), RALT(KC_SCLN), LSFT(KC_GRV), RALT(KC_3), \
+    LSFT(KC_1), LSFT(KC_2), RALT(KC_Q), LSFT(KC_8), RALT(KC_F), RALT(KC_G), LSFT(KC_9), LSFT(KC_6), RALT(KC_SLASH), RALT(KC_COMMA), \
+    LSFT(KC_4), RALT(KC_X), RALT(KC_C), RALT(KC_V), RALT(KC_B), RALT(KC_N), RALT(KC_7), RALT(KC_5), RALT(KC_9), RALT(KC_0), \
+                      TAB_FUN_A, ESC_NUM_A, KC_SPC, ENT_MOU_A, SPC_NAV_A
 
 
 /** \brief Mouse layer - traditional keyboard mouse controls and media controls */
-#define LAYOUT_LAYER_MOUSE                                                               \
+#define LAYOUT_LAYER_MOUSE                                                                    \
     KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, XXXXXXX, MS_ACL2, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, \
     KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN2, MS_ACL1, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
     KC_WH_D, KC_WBAK, KC_WREF, KC_WFWD, KC_BTN3, MS_ACL0, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, \
                       _______, _______, _______, _______, _______
 
+/** \brief Mouse layer - traditional keyboard mouse controls and media controls, alternative right handed version */
+#define LAYOUT_LAYER_MOUSE_A                                                                  \
+    XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, MS_ACL2, XXXXXXX, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, \
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, MS_ACL1, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1, \
+    XXXXXXX, KC_WBAK, KC_WREF, KC_WFWD, MS_ACL0, KC_BTN3, KC_WBAK, KC_WREF, KC_WFWD, KC_WH_D, \
+                      _______, _______, _______, _______, _______
+
 /** \brief Navigation layer. */
-#define LAYOUT_LAYER_NAVIGATION                                                                  \
-    KC_PGUP,  KC_HOME, KC_UP,   KC_END,  KC_DEL,    KC_CAPS, KC_PSCR, KC_SCRL, KC_PAUS, KC_NUM, \
-    KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,    CM_TOGG, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, \
-    KC_PGDN, KC_WBAK, KC_WREF, KC_WFWD,  KC_INS,    DF_GAME, DF_BASE,   DF_NP,  DF_NAV, KC_APP, \
-                      KC_TAB,  KC_ESC,  KC_SPC, _______, _______
+#define LAYOUT_LAYER_NAVIGATION                                                               \
+    KC_PGUP,  KC_HOME, KC_UP,   KC_END,  KC_DEL,  KC_CAPS, KC_PSCR, KC_SCRL, KC_PAUS, KC_NUM, \
+    KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT,  KC_ENT,  CM_TOGG, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI,\
+    KC_PGDN, KC_WBAK, KC_WREF, KC_WFWD,  KC_INS,  DF_GAME, DF_BASE,   DF_NP,  DF_NAV, KC_APP, \
+                      KC_TAB,  KC_ESC,  KC_SPC,   _______, _______
+
+/** \brief Navigation layer, alternative right handed version */
+#define LAYOUT_LAYER_NAVIGATION_A                                                            \
+    KC_CAPS, KC_PSCR, KC_SCRL, KC_PAUS,  KC_NUM,  KC_DEL, KC_HOME, KC_UP,   KC_END, KC_PGUP, \
+    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  CM_TOGG, KC_ENT, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC,\
+    KC_APP,  DF_NAV, DF_NP,    DF_BASE,  DF_GAME, KC_INS, KC_WBAK, KC_WREF, KC_WFWD, KC_PGDN,\
+                      KC_TAB,  KC_ESC,  KC_SPC, KC_ENT, SPC_NAV
+
 
 /**
  * \brief Add Home Row mod to a layout.
@@ -339,9 +279,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [LAYER_GAME] = LAYOUT_wrapper(LAYOUT_LAYER_GAME),
   [LAYER_FUN_NUM] = LAYOUT_wrapper(LAYOUT_LAYER_FUN_NUM),
+  [LAYER_FUN_A] = LAYOUT_wrapper(LAYOUT_LAYER_FUN_A),
   [LAYER_SYM] = LAYOUT_wrapper(LAYOUT_LAYER_SYM),
+  [LAYER_SYM_A] = LAYOUT_wrapper(LAYOUT_LAYER_SYM_A),
+  [LAYER_NUMPAD_A] = LAYOUT_wrapper(LAYOUT_LAYER_NUMPAD_A),
   [LAYER_NUMPAD] = LAYOUT_wrapper(LAYOUT_LAYER_NUMPAD),
+  [LAYER_MOUSE_A] = LAYOUT_wrapper(LAYOUT_LAYER_MOUSE_A),
   [LAYER_MOUSE] = LAYOUT_wrapper(LAYOUT_LAYER_MOUSE),
+  [LAYER_NAVIGATION_A] = LAYOUT_wrapper(LAYOUT_LAYER_NAVIGATION_A),
   [LAYER_NAVIGATION] = LAYOUT_wrapper(LAYOUT_LAYER_NAVIGATION),
   [LAYER_POINTER] = LAYOUT_wrapper(LAYOUT_LAYER_POINTER),
 };
